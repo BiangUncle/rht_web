@@ -1,0 +1,109 @@
+{
+  "type": "page",
+  "title": "测试页面",
+  "body": [
+    {
+      "type": "tpl",
+      "tpl": "这是你刚刚新增的页面。",
+      "inline": false,
+      "id": "u:fab54c99129f"
+    },
+    {
+      "type": "form",
+      "title": "提交执行任务",
+      "body": [
+        {
+          "type": "group",
+          "body": [
+            {
+              "type": "select",
+              "label": "数据集名称",
+              "name": "dataset_name",
+              "id": "u:ff4d6338ed75",
+              "multiple": false,
+              "source": {
+                "url": "http://localhost:8080/ds/list",
+                "method": "get"
+              },
+              "labelField": "label",
+              "valueField": "value"
+            },
+            {
+              "type": "select",
+              "id": "u:bd9f53803c73",
+              "label": "聚类算法",
+              "name": "algorithm",
+              "options": [
+                {
+                  "label": "kmeans",
+                  "value": "kmeans"
+                }
+              ],
+              "multiple": false,
+              "value": "kmeans"
+            }
+          ],
+          "id": "u:98b0e8d04a36"
+        },
+        {
+          "type": "group",
+          "body": [
+            {
+              "type": "input-text",
+              "label": "最大抽样率",
+              "name": "max_ratio",
+              "id": "u:eb6e98bec564",
+              "value": "0.5"
+            },
+            {
+              "type": "input-text",
+              "label": "抽样率",
+              "name": "batch_ratio",
+              "id": "u:1abb68dbbd95",
+              "value": "0.01"
+            }
+          ],
+          "id": "u:03dd25db1452"
+        },
+        {
+          "type": "input-range",
+          "label": "聚类数量",
+          "name": "k_list",
+          "id": "u:12a8800642ff",
+          "multiple": true,
+          "value": {
+            "min": 2,
+            "max": 15
+          },
+          "min": 2,
+          "max": 30,
+          "step": 1,
+          "unit": "",
+          "tooltipPlacement": "auto",
+          "showInput": false,
+          "parts": 1,
+          "showSteps": false,
+          "marks": {
+            "2": "2",
+            "16": "16",
+            "30": "30"
+          },
+          "hidden": false
+        }
+      ],
+      "id": "u:ce10cc8127e2",
+      "submitText": "提交",
+      "rules": [],
+      "initApi": {
+        "url": "",
+        "method": "get"
+      },
+      "api": {
+        "url": "http://localhost:8080/run/run_bse",
+        "method": "post",
+        "messages": {}
+      }
+    }
+  ],
+  "id": "u:fa2343698344"
+}

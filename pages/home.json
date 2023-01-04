@@ -1,0 +1,56 @@
+{
+  "type": "page",
+  "title": "Hello ${world}",
+  "body": [
+    {
+      "type": "tpl",
+      "tpl": "初始页面",
+      "inline": false,
+      "id": "u:3b55706d0383"
+    },
+    {
+      "type": "crud",
+      "api": {
+        "method": "get",
+        "url": "http://localhost:8080/ds/all",
+        "messages": {
+          "success": "获取成功",
+          "failed": "获取失败"
+        },
+        "dataType": "json",
+        "replaceData": true
+      },
+      "columns": [
+        {
+          "label": "数据集名称",
+          "name": "dataset_name",
+          "type": "text"
+        },
+        {
+          "type": "text",
+          "label": "数据集样本数",
+          "name": "instance"
+        },
+        {
+          "type": "text",
+          "label": "数据集簇个数",
+          "name": "cluster"
+        },
+        {
+          "type": "text",
+          "label": "数据集维度",
+          "name": "dim"
+        }
+      ],
+      "id": "u:7a6c21680fc8"
+    }
+  ],
+  "id": "u:b18f40947051",
+  "aside": [
+  ],
+  "toolbar": [
+  ],
+  "data": {
+    "world": "小区"
+  }
+}
